@@ -1,3 +1,18 @@
+/*************************************************************************************
+ *  CSCI 322/522                         Assignment 8                     Fall 2020  *
+ *                                                                                   *
+ *      Class Name: MainActivity.java                                                *
+ *                                                                                   *
+ *      Developer: Brendon Brewer and Eric Kirchman                                  *
+ *      Due Date:  12/9/2020                                                         *
+ *                                                                                   *
+ *      Purpose: This class displays the main activity presented to the user in      *
+ *      by the app(I.E. the main screen). It displays the items currently held in    *
+ *      the user's list (Or nothing if the list is empty). The user is able to add   *
+ *      items to the list, delete items from the list, and start over from anew.     *
+ *                                                                                   *
+ *************************************************************************************/
+
 package edu.niu.z1864126.assignment8;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,8 +24,9 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity
 {
-    private int requestcode = 0;
+    private int requestcode = 0; //Request code to provide when starting new activity
 
+    /*onCreate: Reloads app activity to prior saved state*/
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -18,6 +34,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
     }
 
+    /*onCreateOptionsMenu: Creates menu in main activity from menu_res file*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
@@ -25,16 +42,27 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    /*onOptionsItemSelected: This method takes in the menu option the user selected and brings
+    * them to either the "Add item to list" activity or the "Delete item from list" activity;
+    * Alternatively, if the user picks to start over, all list options are deleted*/
     @Override
     public boolean onOptionsItemSelected(MenuItem choice)
     {
-        switch (choice.getItemId())
+        Intent addOrDelete; //Declaration of intent object to hold activity to transition to
+
+        switch (choice.getItemId()) //Switch that Selects the activity to launch or action to take
         {
-            case R.id.Add:
-                Intent addActivitySwitch = new Intent(this, add_screen_activity.class);
-                startActivityForResult(addActivitySwitch, requestcode);
-            case R.id.Delete:
-            default:
+            case R.id.Add: //User's menu choice is to add to the list; Starts the add activity
+                addOrDelete = new Intent(this, add_screen_activity.class);
+                startActivityForResult(addOrDelete, requestcode);
+                return true;
+            case R.id.Delete: //User's menu choice is to delete from the list; Starts the delete activity
+                addOrDelete = new Intent(this, delete_screen.class);
+                startActivityForResult(addOrDelete, requestcode);
+                return true;
+            case R.id.Start_Over: //User's menu choice is to start over and delete all list items
+                return true;
+            default: //Default case
                 return super.onOptionsItemSelected(choice);
         }
     }

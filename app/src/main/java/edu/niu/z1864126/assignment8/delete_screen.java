@@ -1,8 +1,8 @@
 /******************************************************************************
  *                                                                           *
- *    Class Name: add_screen_activity.java                                   *
+ *    Class Name: delete_screen.java                                         *
  *                                                                           *
- *           Purpose: Allows the user to enter new items into the list.      *
+ *           Purpose: Allows the user to delete items from the list.         *
  *                                                                           *
  *****************************************************************************/
 
@@ -13,17 +13,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class add_screen_activity extends AppCompatActivity {
+public class delete_screen extends AppCompatActivity
+{
 
     /*onCreate: Reloads app activity to prior saved state*/
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_screen_activity);
+        setContentView(R.layout.activity_delete_screen);
     }
 
     /*backToMain: Onclick method to be used with the back button; Returns the user to the
-    * main activity */
+     * main activity */
     public void backToMain(View v)
     {
         finish();
