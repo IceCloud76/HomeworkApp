@@ -12,13 +12,18 @@
         android:layout_width="match_parent"
         android:layout_height="29dp"
         android:paddingLeft="3dp"
-        android:text="Item to add" />
+        android:paddingStart="3dp"
+        android:paddingRight="0dp"
+        android:paddingEnd="0dp"
+        android:text="@string/item_to_add" />
 
     <EditText
         android:id="@+id/itemEntry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="@string/list_item"
+        android:importantForAutofill="no"
         android:inputType="textPersonName" />
 
     <LinearLayout
@@ -28,11 +33,12 @@
         android:paddingTop="20dp">
 
         <Button
-            android:id="@+id/button7"
+            android:id="@+id/addButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Add" />
+            android:onClick="addListItem"
+            android:text="@string/add" />
 
         <Space
             android:layout_width="189dp"
@@ -40,12 +46,12 @@
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/button8"
+            android:id="@+id/backButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="backToMain"
-            android:text="Back" />
+            android:text="@string/back" />
     </LinearLayout>
 
 </LinearLayout>

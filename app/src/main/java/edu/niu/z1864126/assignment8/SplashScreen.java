@@ -1,3 +1,11 @@
+/******************************************************************************
+ *                                                                           *
+ *    Class Name: SplashScreen.java                                          *
+ *                                                                           *
+ *           Purpose: Displays the app's splash screen                       *
+ *                                                                           *
+ *****************************************************************************/
+
 package edu.niu.z1864126.assignment8;
 import android.app.Activity;
 import android.content.Intent;
@@ -13,6 +21,7 @@ public class SplashScreen extends AppCompatActivity {
     // Splash screen timer
         private int SPLASH_TIME_OUT = 3000;
 
+        /*onCreate: Reloads app activity to prior saved state*/
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);

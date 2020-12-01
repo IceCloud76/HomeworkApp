@@ -1,8 +1,9 @@
 /******************************************************************************
  *                                                                           *
- *    Class Name: add_screen_activity.java                                   *
+ *    Class Name: update_item.java                                           *
  *                                                                           *
- *           Purpose: Allows the user to enter new items into the list.      *
+ *           Purpose: Allows the user to update items alread present in      *
+ *           the list.                                                       *
  *                                                                           *
  *****************************************************************************/
 
@@ -13,25 +14,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class add_screen_activity extends AppCompatActivity {
-
+public class update_item extends AppCompatActivity
+{
     /*onCreate: Reloads app activity to prior saved state*/
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_screen_activity);
+        setContentView(R.layout.activity_update_item);
     }
 
     /*backToMain: Onclick method to be used with the back button; Returns the user to the
-    * main activity */
+     * main activity */
     public void backToMain(View v)
     {
         finish();
     }
-
-    /*addListItem: Adds an item to the user's list*/
-    public void addListItem(View v)
-    {
-        //Code will go here when database is finished
-    }
+    
 }
