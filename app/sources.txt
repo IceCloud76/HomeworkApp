@@ -1,0 +1,4 @@
+List of all the websites we used:
+https://www.codeseasy.com/android-splash-screen-with-android-studio/
+https://www.androidhive.info/2013/07/how-to-implement-android-splash-screen-2/
+https://stackoverflow.com/a/37537199
