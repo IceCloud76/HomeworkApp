@@ -9,8 +9,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CheckBox;
 
 import java.util.ArrayList;
+import java.util.ListIterator;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -28,14 +30,22 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         myDb = new ProjectDataBaseHelper(this);
 
-        //ProjectDataBaseHelper.insertItem("Math hw");
+        myDb.insertItem("Math hw");
+        displayHW();
     }
 
 
 
     public void displayHW() {
-        //arrayList = new ArrayList<>(ProjectDataBaseHelper.getNotes());
+        arrayList = new ArrayList<>(myDb.getNotes());
+        ListIterator<homeworkItem> listItr = arrayList.listIterator();
 
+        while(listItr.hasNext())
+        {
+            //System.out.println(listItr.next());
+            CheckBox checkBox = new CheckBox(this);
+            checkBox.setText(listItr.next().getDescOfTask());
+        }
     }
 
     /*onCreateOptionsMenu: Creates menu in main activity from menu_res file*/
