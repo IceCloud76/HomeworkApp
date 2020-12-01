@@ -10,12 +10,15 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
 {
     private int requestcode = 0;
+    ProjectDataBaseHelper myDb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        myDb = new ProjectDataBaseHelper(this);
+
     }
 
     @Override
