@@ -28,4 +28,10 @@ public class add_screen_activity extends AppCompatActivity {
     {
         finish();
     }
+
+    /*addListItem: Adds an item to the user's list*/
+    public void addListItem(View v)
+    {
+        //Code will go here when database is finished
+    }
 }
