@@ -3,3 +3,4 @@ https://www.codeseasy.com/android-splash-screen-with-android-studio/
 https://www.androidhive.info/2013/07/how-to-implement-android-splash-screen-2/
 https://stackoverflow.com/a/37537199
 https://medium.com/@akinremibunmi111/how-to-create-an-sqlite-database-in-android-177f252a4eca
+https://www.11zon.com/zon/android/how-to-get-data-from-sqlite-database-in-android.php

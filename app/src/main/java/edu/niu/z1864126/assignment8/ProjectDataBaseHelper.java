@@ -1,5 +1,6 @@
 package edu.niu.z1864126.assignment8;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -31,6 +32,46 @@ public class ProjectDataBaseHelper extends SQLiteOpenHelper{
         onCreate(db);
     }
 
+    //get the all notes
+    public ArrayList<homeworkItem> getNotes() {
+        ArrayList<homeworkItem> arrayList = new ArrayList<>();
+
+        // select all query
+        String select_query= "SELECT *FROM " + TABLE_NAME;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(select_query, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                homeworkItem noteModel = new homeworkItem();
+                noteModel.setID(cursor.getInt(0));
+                noteModel.setDescOfTask(cursor.getString(1));
+                if (cursor.getInt(2) == 0) {
+                    noteModel.setCompleted(false);
+                }else{
+                    noteModel.setCompleted(true);
+                }
+                //noteModel.setCompleted(cursor.getInt(2));
+                arrayList.add(noteModel);
+            }while (cursor.moveToNext());
+        }
+        return arrayList;
+    }
+
+    //add the new note
+    public void insertItem(String desc) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("DESCRIPTION", desc);
+        //values.put("Description", des);
+
+        //inserting new row
+        sqLiteDatabase.insert(TABLE_NAME, null , values);
+        //close database connection
+        sqLiteDatabase.close();
+    }
 
     SQLiteDatabase db = this.getWritableDatabase();
 

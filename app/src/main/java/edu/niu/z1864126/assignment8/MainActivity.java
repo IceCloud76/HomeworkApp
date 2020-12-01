@@ -1,15 +1,23 @@
 package edu.niu.z1864126.assignment8;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity
 {
     ProjectDataBaseHelper myDb;
+    ArrayList<homeworkItem> arrayList;
+    RecyclerView recyclerView;
+
     private int requestcode = 0; //Request code to provide when starting new activity
 
     /*onCreate: Reloads app activity to prior saved state*/
@@ -19,6 +27,14 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         myDb = new ProjectDataBaseHelper(this);
+
+        //ProjectDataBaseHelper.insertItem("Math hw");
+    }
+
+
+
+    public void displayHW() {
+        //arrayList = new ArrayList<>(ProjectDataBaseHelper.getNotes());
 
     }
 

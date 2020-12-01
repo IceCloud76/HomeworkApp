@@ -5,10 +5,14 @@ public class homeworkItem {
     private int ID;
     private boolean completed;
 
-    public homeworkItem(String desc, int age){
+    public homeworkItem(String desc, int id){
         this.descOfTask = desc;
-        this.ID = age;
+        this.ID = id;
         this.completed = false;
+    }
+
+    public homeworkItem(){
+
     }
 
     //get methods
