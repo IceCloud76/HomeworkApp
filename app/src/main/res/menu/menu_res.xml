@@ -11,5 +11,8 @@
         <item
             android:title="@string/start_over"
             android:id="@+id/Start_Over"/>
+        <item
+            android:title="@string/update_item"
+            android:id="@+id/Update_Item"/>
     </group>
 </menu>

@@ -48,19 +48,23 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem choice)
     {
-        Intent addOrDelete; //Declaration of intent object to hold activity to transition to
+        Intent addDeleteUpdate; //Declaration of intent object to hold activity to transition to
 
         switch (choice.getItemId()) //Switch that Selects the activity to launch or action to take
         {
             case R.id.Add: //User's menu choice is to add to the list; Starts the add activity
-                addOrDelete = new Intent(this, add_screen_activity.class);
-                startActivityForResult(addOrDelete, requestcode);
+                addDeleteUpdate = new Intent(this, add_screen_activity.class);
+                startActivityForResult(addDeleteUpdate, requestcode);
                 return true;
             case R.id.Delete: //User's menu choice is to delete from the list; Starts the delete activity
-                addOrDelete = new Intent(this, delete_screen.class);
-                startActivityForResult(addOrDelete, requestcode);
+                addDeleteUpdate = new Intent(this, delete_screen.class);
+                startActivityForResult(addDeleteUpdate, requestcode);
                 return true;
             case R.id.Start_Over: //User's menu choice is to start over and delete all list items
+                return true;
+            case R.id.Update_Item: //User's menu choice is to update an item in the list
+                addDeleteUpdate = new Intent(this, update_item.class);
+                startActivityForResult(addDeleteUpdate, requestcode);
                 return true;
             default: //Default case
                 return super.onOptionsItemSelected(choice);

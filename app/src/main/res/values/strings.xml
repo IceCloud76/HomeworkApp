@@ -9,4 +9,5 @@
     <string name="add">Add</string>
     <string name="list_item">List Item</string>
     <string name="back">Back</string>
+    <string name="update_item">Update Item</string>
 </resources>
