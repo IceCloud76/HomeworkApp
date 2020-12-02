@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         myDb = new ProjectDataBaseHelper(this);
 
-        //myDb.insertItem("Math hw"); //USED FOR TESTING ONLY
+        myDb.insertItem("Math hw"); //USED FOR TESTING ONLY
 
         displayHW();
     }
@@ -43,10 +43,12 @@ public class MainActivity extends AppCompatActivity
 
 
     public void displayHW() {
+        LinearLayout linearLayout = findViewById(R.id.HomeworkView);
+        ((LinearLayout) linearLayout).removeAllViews();
+
         arrayList = new ArrayList<>(myDb.retrieveItems());
         ListIterator<homeworkItem> listItr = arrayList.listIterator();
         int count = 1;
-        LinearLayout linearLayout = findViewById(R.id.HomeworkView);
 
         while(listItr.hasNext())
         {
@@ -96,6 +98,8 @@ public class MainActivity extends AppCompatActivity
                 startActivityForResult(addDeleteUpdate, requestcode);
                 return true;
             case R.id.Start_Over: //User's menu choice is to start over and delete all list items
+                myDb.deleteAll();
+                displayHW();
                 return true;
             case R.id.Update_Item: //User's menu choice is to update an item in the list
                 addDeleteUpdate = new Intent(this, update_item.class);

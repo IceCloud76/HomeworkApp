@@ -73,6 +73,14 @@ public class ProjectDataBaseHelper extends SQLiteOpenHelper{
         sqLiteDatabase.close();
     }
 
-    SQLiteDatabase db = this.getWritableDatabase();
+    public void deleteAll()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_NAME,null,null);
+        db.execSQL("delete from "+ TABLE_NAME);
+        db.close();
+    }
+
+    //SQLiteDatabase db = this.getWritableDatabase();
 
 }
