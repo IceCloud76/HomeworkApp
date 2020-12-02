@@ -54,4 +54,22 @@
             android:text="@string/back" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/yourItemList"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="@string/your_list"
+        android:textSize="18sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/listHolder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
 </LinearLayout>

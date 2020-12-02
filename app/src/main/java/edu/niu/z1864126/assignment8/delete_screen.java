@@ -47,7 +47,6 @@ public class delete_screen extends AppCompatActivity
         arrayList = new ArrayList<>(myDb.retrieveItems());
         ListIterator<homeworkItem> listItr = arrayList.listIterator();
         homeworkItem currentItem;
-        int id = 0;
 
         while(listItr.hasNext())
         {
@@ -67,7 +66,7 @@ public class delete_screen extends AppCompatActivity
                 }
             });
 
-            // Add Checkbox to LinearLayout
+            // Add radioButton to LinearLayout
             if (linearLayout != null) {
                 linearLayout.addView(radioButton);
             }
