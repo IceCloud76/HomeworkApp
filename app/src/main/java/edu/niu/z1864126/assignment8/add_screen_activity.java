@@ -10,6 +10,8 @@ package edu.niu.z1864126.assignment8;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -31,6 +33,8 @@ public class add_screen_activity extends AppCompatActivity {
     * main activity */
     public void backToMain(View v)
     {
+        Intent returnResult = new Intent();
+        setResult(Activity.RESULT_OK, returnResult);
         finish();
     }
 

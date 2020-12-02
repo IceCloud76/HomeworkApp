@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.app.Activity;
 import android.util.Log;
 import android.content.Intent;
 import android.os.Bundle;
@@ -91,7 +93,6 @@ public class MainActivity extends AppCompatActivity
             case R.id.Add: //User's menu choice is to add to the list; Starts the add activity
                 addDeleteUpdate = new Intent(this, add_screen_activity.class);
                 startActivityForResult(addDeleteUpdate, requestcode);
-                displayHW();
                 return true;
             case R.id.Delete: //User's menu choice is to delete from the list; Starts the delete activity
                 addDeleteUpdate = new Intent(this, delete_screen.class);
@@ -108,5 +109,18 @@ public class MainActivity extends AppCompatActivity
             default: //Default case
                 return super.onOptionsItemSelected(choice);
         }
+
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent returnResult)
+    {
+        super.onActivityResult(requestCode, resultCode, returnResult);
+
+        if(resultCode == Activity.RESULT_OK)
+        {
+            displayHW();
+        }
+    }
+
 }
