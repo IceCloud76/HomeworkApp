@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity
 {
     ProjectDataBaseHelper myDb;
     ArrayList<homeworkItem> arrayList;
-    RecyclerView recyclerView;
 
     private int requestcode = 0; //Request code to provide when starting new activity
 
@@ -92,6 +91,7 @@ public class MainActivity extends AppCompatActivity
             case R.id.Add: //User's menu choice is to add to the list; Starts the add activity
                 addDeleteUpdate = new Intent(this, add_screen_activity.class);
                 startActivityForResult(addDeleteUpdate, requestcode);
+                displayHW();
                 return true;
             case R.id.Delete: //User's menu choice is to delete from the list; Starts the delete activity
                 addDeleteUpdate = new Intent(this, delete_screen.class);
