@@ -125,6 +125,7 @@ public class MainActivity extends AppCompatActivity
                 return true;
             case R.id.Update_Item: //User's menu choice is to update an item in the list
                 addDeleteUpdate = new Intent(this, update_item.class);
+                Log.d("mytag", " we passed intent");
                 startActivityForResult(addDeleteUpdate, requestcode);
                 return true;
             default: //Default case

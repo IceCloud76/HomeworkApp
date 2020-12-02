@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
@@ -33,25 +34,34 @@ public class update_item extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        Log.d("mytag", " we made it to onCreate");
         super.onCreate(savedInstanceState);
+        Log.d("mytag", " we made it to onCreate2");
         setContentView(R.layout.activity_update_item);
-
+        Log.d("mytag", " we made it to onCreate3");
         myDb = new ProjectDataBaseHelper(this);
-
+        Log.d("mytag", " we made it to onCreate4");
         displayHW();
+        Log.d("mytag", " we made it to onCreateX");
     }
 
     public void displayHW() {
+
         LinearLayout linearLayout = findViewById(R.id.List);
         ((LinearLayout) linearLayout).removeAllViews();
+
 
         arrayList = new ArrayList<>(myDb.retrieveItems());
         ListIterator<homeworkItem> listItr = arrayList.listIterator();
         homeworkItem currentItem;
 
+        Log.d("mytag", " before hasNext()");
         while(listItr.hasNext())
         {
+
             RadioButton radioButton = new RadioButton(this);
+            Log.d("mytag", " After create radiobutton");
+
             currentItem = listItr.next();
             radioButton.setId(currentItem.getID());
             radioButton.setText(currentItem.getDescOfTask());
@@ -73,6 +83,8 @@ public class update_item extends AppCompatActivity
             }
 
         }
+
+
     }
 
     /*backToMain: Onclick method to be used with the back button; Returns the user to the
