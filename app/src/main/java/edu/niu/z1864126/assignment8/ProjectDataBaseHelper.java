@@ -89,4 +89,21 @@ public class ProjectDataBaseHelper extends SQLiteOpenHelper{
     }
     //SQLiteDatabase db = this.getWritableDatabase();
 
+    public boolean updateItem(Integer id, boolean done) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("COMPLETED", done);
+        db.update("tableone", contentValues, "id = ? ", new String[] { Integer.toString(id) } );
+        return true;
+    }
+
+    public boolean updateItem(Integer id, String newDescription) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("DESCRIPTION", newDescription);
+        db.update("tableone", contentValues, "id = ? ", new String[] { Integer.toString(id) } );
+        return true;
+    }
+
+
 }
