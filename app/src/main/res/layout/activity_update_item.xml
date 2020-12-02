@@ -5,28 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity" >
-
-    <TextView
-        android:id="@+id/yourList"
-        android:layout_width="match_parent"
-        android:layout_height="46dp"
-        android:paddingLeft="12dp"
-        android:paddingStart="12dp"
-        android:paddingRight="0dp"
-        android:paddingEnd="0dp"
-        android:paddingTop="10dp"
-        android:text="@string/your_list"
-        android:textSize="18sp" />
+    tools:context=".update_item">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="546dp">
 
         <LinearLayout
-            android:id="@+id/HomeworkView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" />
     </ScrollView>
+
+    <Button
+        android:id="@+id/backButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|center_horizontal"
+        android:onClick="backToMain"
+        android:text="@string/back" />
 </LinearLayout>

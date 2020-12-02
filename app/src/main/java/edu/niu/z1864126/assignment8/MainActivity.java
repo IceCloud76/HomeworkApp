@@ -1,14 +1,147 @@
+/******************************************************************************
+ *                                                                           *
+ *    Class Name: MainActivity.java                                          *
+ *                                                                           *
+ *           Purpose: Starts after the Splashscreen                          *
+ *           Created By Brendon Brewer and Eric Kirchman                     *
+ *                                                                           *
+ *****************************************************************************/
 package edu.niu.z1864126.assignment8;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
+import android.util.Log;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.ListIterator;
 
+public class MainActivity extends AppCompatActivity
+{
+    ProjectDataBaseHelper myDb;
+    ArrayList<homeworkItem> arrayList;
+
+    private int requestcode = 0; //Request code to provide when starting new activity
+
+    /*onCreate: Reloads app activity to prior saved state*/
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        myDb = new ProjectDataBaseHelper(this);
+
+        //myDb.insertItem("Math hw"); //USED FOR TESTING ONLY
+
+        displayHW();
     }
+
+
+    public void displayHW() {
+        LinearLayout linearLayout = findViewById(R.id.HomeworkView);
+        ((LinearLayout) linearLayout).removeAllViews();
+
+        arrayList = new ArrayList<>(myDb.retrieveItems());
+        ListIterator<homeworkItem> listItr = arrayList.listIterator();
+        homeworkItem currentItem;
+
+        while(listItr.hasNext())
+        {
+            CheckBox checkBox = new CheckBox(this);
+
+            currentItem = listItr.next();
+            checkBox.setId(currentItem.getID());
+            checkBox.setText(currentItem.getDescOfTask());
+
+            //checkBox.setText(listItr.next().getDescOfTask());
+
+            checkBox.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    String msg = "Marked as " + (isChecked ? "complete" : "uncomplete");
+                    Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+
+                    if(checkBox.isChecked()) {
+                        myDb.updateItem(checkBox.getId(), true);
+                        //Log.d("mytag", checkBox.getDescOfTask() + " is checked");
+                    }else{
+                        myDb.updateItem(checkBox.getId(), false);
+                        //Log.d("mytag", checkBox.getDescOfTask() + " is NOT checked");
+                    }
+                }
+            });
+
+            // Add Checkbox to LinearLayout
+            if (linearLayout != null) {
+                linearLayout.addView(checkBox);
+            }
+
+        }
+    }
+
+    /*onCreateOptionsMenu: Creates menu in main activity from menu_res file*/
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.menu_res, menu);
+        return true;
+    }
+
+    /*onOptionsItemSelected: This method takes in the menu option the user selected and brings
+    * them to either the "Add item to list" activity or the "Delete item from list" activity;
+    * Alternatively, if the user picks to start over, all list options are deleted*/
+    @Override
+    public boolean onOptionsItemSelected(MenuItem choice)
+    {
+        Intent addDeleteUpdate; //Declaration of intent object to hold activity to transition to
+
+        switch (choice.getItemId()) //Switch that Selects the activity to launch or action to take
+        {
+            case R.id.Add: //User's menu choice is to add to the list; Starts the add activity
+                addDeleteUpdate = new Intent(this, add_screen_activity.class);
+                startActivityForResult(addDeleteUpdate, requestcode);
+                return true;
+            case R.id.Delete: //User's menu choice is to delete from the list; Starts the delete activity
+                addDeleteUpdate = new Intent(this, delete_screen.class);
+                startActivityForResult(addDeleteUpdate, requestcode);
+                return true;
+            case R.id.Start_Over: //User's menu choice is to start over and delete all list items
+                myDb.deleteAll();
+                displayHW();
+                return true;
+            case R.id.Update_Item: //User's menu choice is to update an item in the list
+                addDeleteUpdate = new Intent(this, update_item.class);
+                startActivityForResult(addDeleteUpdate, requestcode);
+                return true;
+            default: //Default case
+                return super.onOptionsItemSelected(choice);
+        }
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent returnResult)
+    {
+        super.onActivityResult(requestCode, resultCode, returnResult);
+
+        if(resultCode == Activity.RESULT_OK)
+        {
+            displayHW();
+        }
+    }
+
 }

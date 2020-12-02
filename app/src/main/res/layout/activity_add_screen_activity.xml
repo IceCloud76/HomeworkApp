@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".add_screen_activity">
+
+    <TextView
+        android:id="@+id/itemToAdd"
+        android:layout_width="match_parent"
+        android:layout_height="29dp"
+        android:paddingLeft="3dp"
+        android:paddingStart="3dp"
+        android:paddingRight="0dp"
+        android:paddingEnd="0dp"
+        android:text="@string/item_to_add" />
+
+    <EditText
+        android:id="@+id/itemEntry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/list_item"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:paddingTop="20dp">
+
+        <Button
+            android:id="@+id/addButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="addListItem"
+            android:text="@string/add" />
+
+        <Space
+            android:layout_width="189dp"
+            android:layout_height="46dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="backToMain"
+            android:text="@string/back" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/yourItemList"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="@string/your_list"
+        android:textSize="18sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/listHolder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+</LinearLayout>
