@@ -17,8 +17,7 @@ Checklist:
 - [x] deleteItem() - Delete an item by id number  
 - [x] deleteAll() - Delete all items from the database  
 
-- [ ] Make insert screen functional  
-- [ ] Make delete screen functional
+- [X] Make insert screen functional  
 - [ ] Make delete screen functional
 - [ ] Figure out how to "modify" an item
 
