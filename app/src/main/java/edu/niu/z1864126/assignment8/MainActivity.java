@@ -4,12 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
+import android.util.Log;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.ListIterator;
@@ -30,7 +35,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         myDb = new ProjectDataBaseHelper(this);
 
-        myDb.insertItem("Math hw");
+
         displayHW();
     }
 
@@ -39,12 +44,27 @@ public class MainActivity extends AppCompatActivity
     public void displayHW() {
         arrayList = new ArrayList<>(myDb.getNotes());
         ListIterator<homeworkItem> listItr = arrayList.listIterator();
+        int count = 1;
+        LinearLayout linearLayout = findViewById(R.id.HomeworkView);
 
         while(listItr.hasNext())
         {
-            //System.out.println(listItr.next());
             CheckBox checkBox = new CheckBox(this);
             checkBox.setText(listItr.next().getDescOfTask());
+
+            checkBox.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    String msg = "You have " + (isChecked ? "checked" : "unchecked") + " this Check it Checkbox.";
+                    Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            // Add Checkbox to LinearLayout
+            if (linearLayout != null) {
+                linearLayout.addView(checkBox);
+            }
         }
     }
 
@@ -53,6 +73,7 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu)
     {
         getMenuInflater().inflate(R.menu.menu_res, menu);
+        //myDb.insertItem("Math hw"); //USED FOR TESTING ONLY
         return true;
     }
 
