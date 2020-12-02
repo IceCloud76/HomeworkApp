@@ -18,9 +18,10 @@ Checklist:
 - [x] deleteAll() - Delete all items from the database  
 
 - [X] Make insert screen functional  
-- [ ] Make delete screen functional
-- [ ] Figure out how to "modify" an item
-
+- [x] Make delete screen functional
+- [x] Figure out how to "modify" an item
+- [ ] Make modify entry screen functional
+- [ ] Add comments and doc boxes
 
 Base design - In progress
 

@@ -1,3 +1,11 @@
+/******************************************************************************
+ *                                                                           *
+ *    Class Name: MainActivity.java                                          *
+ *                                                                           *
+ *           Purpose: Starts after the Splashscreen                          *
+ *           Created By Brendon Brewer and Eric Kirchman                     *
+ *                                                                           *
+ *****************************************************************************/
 package edu.niu.z1864126.assignment8;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,18 +49,24 @@ public class MainActivity extends AppCompatActivity
         displayHW();
     }
 
+
     public void displayHW() {
         LinearLayout linearLayout = findViewById(R.id.HomeworkView);
         ((LinearLayout) linearLayout).removeAllViews();
 
         arrayList = new ArrayList<>(myDb.retrieveItems());
         ListIterator<homeworkItem> listItr = arrayList.listIterator();
-        int count = 1;
+        homeworkItem currentItem;
 
         while(listItr.hasNext())
         {
             CheckBox checkBox = new CheckBox(this);
-            checkBox.setText(listItr.next().getDescOfTask());
+
+            currentItem = listItr.next();
+            checkBox.setId(currentItem.getID());
+            checkBox.setText(currentItem.getDescOfTask());
+
+            //checkBox.setText(listItr.next().getDescOfTask());
 
             checkBox.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -61,17 +75,13 @@ public class MainActivity extends AppCompatActivity
                     String msg = "Marked as " + (isChecked ? "complete" : "uncomplete");
                     Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
 
-                  /*
                     if(checkBox.isChecked()) {
-                        //myDb.updateItem(listItr.next().getID(), true);
-                        Log.d("mytag", listItr.next().getDescOfTask() + " is checked");
-
+                        myDb.updateItem(checkBox.getId(), true);
+                        //Log.d("mytag", checkBox.getDescOfTask() + " is checked");
                     }else{
-                        //myDb.updateItem(listItr.next().getID(), false);
-                        Log.d("mytag", listItr.next().getDescOfTask() + " is NOT checked");
-
+                        myDb.updateItem(checkBox.getId(), false);
+                        //Log.d("mytag", checkBox.getDescOfTask() + " is NOT checked");
                     }
-                  */
                 }
             });
 
@@ -79,6 +89,7 @@ public class MainActivity extends AppCompatActivity
             if (linearLayout != null) {
                 linearLayout.addView(checkBox);
             }
+
         }
     }
 

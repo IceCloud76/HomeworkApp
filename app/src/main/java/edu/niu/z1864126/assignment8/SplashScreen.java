@@ -3,6 +3,7 @@
  *    Class Name: SplashScreen.java                                          *
  *                                                                           *
  *           Purpose: Displays the app's splash screen                       *
+ *           Created By Brendon Brewer and Eric Kirchman                     *
  *                                                                           *
  *****************************************************************************/
 

@@ -1,3 +1,11 @@
+/******************************************************************************
+ *                                                                           *
+ *    Class Name: ProjectDataBaseHelper.java                                 *
+ *                                                                           *
+ *           Purpose: helps the devs to access database.                     *
+ *           Created By Brendon Brewer and Eric Kirchman                     *
+ *                                                                           *
+ *****************************************************************************/
 package edu.niu.z1864126.assignment8;
 
 import android.content.ContentValues;

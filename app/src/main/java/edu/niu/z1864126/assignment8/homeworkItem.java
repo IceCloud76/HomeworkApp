@@ -1,3 +1,11 @@
+/******************************************************************************
+ *                                                                           *
+ *    Class Name: MainActivity.java                                          *
+ *                                                                           *
+ *           Purpose: Starts after the Splashscreen                          *
+ *           Created By Brendon Brewer and Eric Kirchman                     *
+ *                                                                           *
+ *****************************************************************************/
 package edu.niu.z1864126.assignment8;
 
 public class homeworkItem {
