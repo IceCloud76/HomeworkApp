@@ -71,6 +71,14 @@ public class add_screen_activity extends AppCompatActivity {
         finish();
     }
 
+    @Override
+    public void onBackPressed()
+    {
+        Intent returnResult = new Intent();
+        setResult(Activity.RESULT_OK, returnResult);
+        finish();
+    }
+
     /*addListItem: Adds an item to the user's list*/
     public void addListItem(View v)
     {

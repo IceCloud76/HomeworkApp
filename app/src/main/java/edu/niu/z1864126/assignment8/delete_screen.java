@@ -83,5 +83,13 @@ public class delete_screen extends AppCompatActivity
         finish();
     }
 
+    @Override
+    public void onBackPressed()
+    {
+        Intent returnResult = new Intent();
+        setResult(Activity.RESULT_OK, returnResult);
+        finish();
+    }
+
 
 }

@@ -84,6 +84,12 @@ public class update_item extends AppCompatActivity
         finish();
     }
 
-
+    @Override
+    public void onBackPressed()
+    {
+        Intent returnResult = new Intent();
+        setResult(Activity.RESULT_OK, returnResult);
+        finish();
+    }
     
 }
