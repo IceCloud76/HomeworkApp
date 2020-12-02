@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         myDb = new ProjectDataBaseHelper(this);
 
-        myDb.insertItem("Math hw"); //USED FOR TESTING ONLY
+        //myDb.insertItem("Math hw"); //USED FOR TESTING ONLY
 
         displayHW();
     }

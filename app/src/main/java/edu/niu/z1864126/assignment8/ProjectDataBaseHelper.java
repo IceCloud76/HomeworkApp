@@ -81,6 +81,12 @@ public class ProjectDataBaseHelper extends SQLiteOpenHelper{
         db.close();
     }
 
+    public int deleteItem (int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete("tableone",
+                "ID = ? ",
+                new String[] { Integer.toString(id) });
+    }
     //SQLiteDatabase db = this.getWritableDatabase();
 
 }
