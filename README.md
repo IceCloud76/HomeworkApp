@@ -14,7 +14,7 @@ Checklist:
 - [x] retrieveItems() - Retrieve all the items in the database  
 - [ ] update Item() - Update an item in the database  
 - [ ] deleteItem() - Delete an item by id number  
-- [ ] deleteAll() - Delete all items from the database  
+- [x] deleteAll() - Delete all items from the database  
 
 Base design - In progress
 
