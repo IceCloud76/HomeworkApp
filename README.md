@@ -13,7 +13,7 @@ Checklist:
 **Needs following methods**  
 - [x] insertItem() - Insert an item, which is passed in as an argument  
 - [x] retrieveItems() - Retrieve all the items in the database  
-- [ ] update Item() - Update an item in the database  
+- [x] update Item() - Update an item in the database  
 - [x] deleteItem() - Delete an item by id number  
 - [x] deleteAll() - Delete all items from the database  
 

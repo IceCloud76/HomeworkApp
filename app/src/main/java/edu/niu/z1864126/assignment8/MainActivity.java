@@ -41,8 +41,6 @@ public class MainActivity extends AppCompatActivity
         displayHW();
     }
 
-
-
     public void displayHW() {
         LinearLayout linearLayout = findViewById(R.id.HomeworkView);
         ((LinearLayout) linearLayout).removeAllViews();
@@ -60,8 +58,20 @@ public class MainActivity extends AppCompatActivity
             checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    String msg = "You have " + (isChecked ? "checked" : "unchecked") + " this Check it Checkbox.";
+                    String msg = "Marked as " + (isChecked ? "complete" : "uncomplete");
                     Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+
+                  /*
+                    if(checkBox.isChecked()) {
+                        //myDb.updateItem(listItr.next().getID(), true);
+                        Log.d("mytag", listItr.next().getDescOfTask() + " is checked");
+
+                    }else{
+                        //myDb.updateItem(listItr.next().getID(), false);
+                        Log.d("mytag", listItr.next().getDescOfTask() + " is NOT checked");
+
+                    }
+                  */
                 }
             });
 
