@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         myDb = new ProjectDataBaseHelper(this);
 
+        //myDb.insertItem("Math hw"); //USED FOR TESTING ONLY
 
         displayHW();
     }
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity
 
 
     public void displayHW() {
-        arrayList = new ArrayList<>(myDb.getNotes());
+        arrayList = new ArrayList<>(myDb.retrieveItems());
         ListIterator<homeworkItem> listItr = arrayList.listIterator();
         int count = 1;
         LinearLayout linearLayout = findViewById(R.id.HomeworkView);
@@ -73,7 +74,6 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu)
     {
         getMenuInflater().inflate(R.menu.menu_res, menu);
-        //myDb.insertItem("Math hw"); //USED FOR TESTING ONLY
         return true;
     }
 

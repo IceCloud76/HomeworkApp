@@ -34,7 +34,7 @@ public class ProjectDataBaseHelper extends SQLiteOpenHelper{
     }
 
     //get the all notes
-    public ArrayList<homeworkItem> getNotes() {
+    public ArrayList<homeworkItem> retrieveItems() {
         ArrayList<homeworkItem> arrayList = new ArrayList<>();
 
         // select all query
@@ -65,7 +65,7 @@ public class ProjectDataBaseHelper extends SQLiteOpenHelper{
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("DESCRIPTION", desc);
-        //values.put("Description", des);
+        values.put("COMPLETED", false);
 
         //inserting new row
         sqLiteDatabase.insert(TABLE_NAME, null , values);

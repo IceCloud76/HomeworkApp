@@ -10,8 +10,8 @@ Checklist:
 - [X] Create insert screen - Needs an EditText to input info, needs a Button to add to database, a Button to return to Main screen, and a list of current items in db  
 - [ ] Create delete screen - Needs Radio buttons to select each item to delete and button to delete all from db  
 **Needs following methods**  
-- [ ] insertItem() - Insert an item, which is passed in as an argument  
-- [ ] retrieveItems() - Retrieve all the items in the database  
+- [x] insertItem() - Insert an item, which is passed in as an argument  
+- [x] retrieveItems() - Retrieve all the items in the database  
 - [ ] update Item() - Update an item in the database  
 - [ ] deleteItem() - Delete an item by id number  
 - [ ] deleteAll() - Delete all items from the database  
