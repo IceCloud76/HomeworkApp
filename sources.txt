@@ -6,3 +6,4 @@ https://medium.com/@akinremibunmi111/how-to-create-an-sqlite-database-in-android
 https://www.11zon.com/zon/android/how-to-get-data-from-sqlite-database-in-android.php
 https://stackoverflow.com/questions/9599741/how-to-delete-all-records-from-table-in-sqlite-with-android
 https://alvinalexander.com/source-code/android-mockup-prototype-dialog-text-field/
+https://stackoverflow.com/questions/20114485/use-onactivityresult-android
