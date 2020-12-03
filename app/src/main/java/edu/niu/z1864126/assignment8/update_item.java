@@ -76,6 +76,9 @@ public class update_item extends AppCompatActivity
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
                     final EditText taskEditText = new EditText(update_item.this);
+
+                    taskEditText.setText(radioButton.getText().toString());
+
                     AlertDialog dialog = new AlertDialog.Builder(update_item.this)
                             .setTitle("Update a task")
                             .setMessage("What should the new description be?")
