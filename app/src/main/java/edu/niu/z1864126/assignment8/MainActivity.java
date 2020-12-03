@@ -1,6 +1,6 @@
 /**********************************************************
  *
- *  CSCI 322            Assignment 6               Fall 2020
+ *  CSCI 322            Assignment 8               Fall 2020
  *
  *                  mainActivity.java
  *
