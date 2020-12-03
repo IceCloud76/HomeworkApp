@@ -5,4 +5,3 @@ https://stackoverflow.com/a/37537199
 https://medium.com/@akinremibunmi111/how-to-create-an-sqlite-database-in-android-177f252a4eca
 https://www.11zon.com/zon/android/how-to-get-data-from-sqlite-database-in-android.php
 https://stackoverflow.com/questions/9599741/how-to-delete-all-records-from-table-in-sqlite-with-android
-https://stackoverflow.com/questions/20114485/use-onactivityresult-android
