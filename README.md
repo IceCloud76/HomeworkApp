@@ -20,8 +20,8 @@ Checklist:
 - [X] Make insert screen functional  
 - [x] Make delete screen functional
 - [x] Figure out how to "modify" an item
-- [ ] Make modify entry screen functional
-- [ ] Add comments and doc boxes
+- [x] Make modify entry screen functional
+- [x] Add comments and doc boxes
 
 Base design - In progress
 
