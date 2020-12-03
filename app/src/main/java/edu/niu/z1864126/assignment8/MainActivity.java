@@ -31,8 +31,8 @@ import java.util.ListIterator;
 
 public class MainActivity extends AppCompatActivity {
 
-    ProjectDataBaseHelper myDb;
-    ArrayList<homeworkItem> arrayList;
+    private ProjectDataBaseHelper myDb;
+    private ArrayList<homeworkItem> arrayList;
 
     private int requestcode = 0; //Request code to provide when starting new activity
 

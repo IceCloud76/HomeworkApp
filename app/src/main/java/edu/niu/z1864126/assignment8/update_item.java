@@ -30,8 +30,8 @@ import java.util.ArrayList;
 import java.util.ListIterator;
 
 public class update_item extends AppCompatActivity {
-    ProjectDataBaseHelper myDb; //create a database helper
-    ArrayList<homeworkItem> arrayList; //create a arrayList of homeworkItems
+    private ProjectDataBaseHelper myDb; //create a database helper
+    private ArrayList<homeworkItem> arrayList; //create a arrayList of homeworkItems
 
     /*onCreate: Reloads app activity to prior saved state*/
     @Override
