@@ -85,13 +85,13 @@ public class update_item extends AppCompatActivity
                                 public void onClick(DialogInterface dialog, int which) {
                                     String task = String.valueOf(taskEditText.getText());
                                     myDb.updateItem(radioButton.getId(), task);
-                                    radioButton.setChecked(false);
+                                    radioButton.setText(task);
                                 }
                             })
                             .setNegativeButton("Cancel", null)
                             .create();
                     dialog.show();
-
+                    radioButton.setChecked(false);
                 }
             });
 
