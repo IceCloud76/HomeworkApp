@@ -12,12 +12,16 @@ package edu.niu.z1864126.assignment8;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -70,10 +74,24 @@ public class update_item extends AppCompatActivity
             radioButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    myDb.deleteItem(radioButton.getId());
-                    linearLayout.removeView(radioButton);
-                    String msg = "Item Deleted.";
-                    Toast.makeText(update_item.this, msg, Toast.LENGTH_SHORT).show();
+
+                    final EditText taskEditText = new EditText(update_item.this);
+                    AlertDialog dialog = new AlertDialog.Builder(update_item.this)
+                            .setTitle("Update a task")
+                            .setMessage("What should the new description be?")
+                            .setView(taskEditText)
+                            .setPositiveButton("Update", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    String task = String.valueOf(taskEditText.getText());
+                                    myDb.updateItem(radioButton.getId(), task);
+                                    radioButton.setChecked(false);
+                                }
+                            })
+                            .setNegativeButton("Cancel", null)
+                            .create();
+                    dialog.show();
+
                 }
             });
 
@@ -83,7 +101,6 @@ public class update_item extends AppCompatActivity
             }
 
         }
-
 
     }
 
@@ -103,5 +120,5 @@ public class update_item extends AppCompatActivity
         setResult(Activity.RESULT_OK, returnResult);
         finish();
     }
-    
+
 }
