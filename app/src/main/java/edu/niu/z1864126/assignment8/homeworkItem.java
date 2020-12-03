@@ -1,24 +1,30 @@
 /******************************************************************************
  *                                                                           *
- *    Class Name: MainActivity.java                                          *
+ *    Class Name: homeworkItem.java                                          *
  *                                                                           *
- *           Purpose: Starts after the Splashscreen                          *
+ *           Purpose: A class used to hold one user entry                    *
+ *           from a "To-do" list/database entry                              *
  *           Created By Brendon Brewer and Eric Kirchman                     *
  *                                                                           *
  *****************************************************************************/
 package edu.niu.z1864126.assignment8;
 
 public class homeworkItem {
-    private String descOfTask;
-    private int ID;
-    private boolean completed;
 
-    public homeworkItem(String desc, int id){
+    //Declaration of initial variable
+    private String descOfTask; //Holds the task to be done
+    private int ID; //Holds ID of task
+    private boolean completed; //Holds complete/on-complete (true/false) state of task
+
+    /*homeworkItem: Constructor of homeworkItem; Initializes object's ID,task, and completion status*/
+    public homeworkItem(String desc, int id)
+    {
         this.descOfTask = desc;
         this.ID = id;
         this.completed = false;
     }
 
+    /*homeworkItem: Cosntructor of homeworkItem when no parameters are given*/
     public homeworkItem(){
 
     }

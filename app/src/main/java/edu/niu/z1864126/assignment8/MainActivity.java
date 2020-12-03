@@ -31,8 +31,8 @@ import java.util.ListIterator;
 
 public class MainActivity extends AppCompatActivity {
 
-    ProjectDataBaseHelper myDb;
-    ArrayList<homeworkItem> arrayList;
+    private ProjectDataBaseHelper myDb;
+    private ArrayList<homeworkItem> arrayList;
 
 
     /*onCreate: Reloads app activity to prior saved state*/
