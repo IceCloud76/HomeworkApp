@@ -1,23 +1,24 @@
-/******************************************************************************
- *                                                                           *
- *    Class Name: MainActivity.java                                          *
- *                                                                           *
- *           Purpose: Starts after the Splashscreen                          *
- *           Created By Brendon Brewer and Eric Kirchman                     *
- *                                                                           *
- *****************************************************************************/
+/**********************************************************
+ *
+ *  CSCI 322            Assignment 6               Fall 2020
+ *
+ *                  mainActivity.java
+ *
+ *      Developers: Eric Kirchman and Brendon Brewer
+ *      Due Date: 12/4/20
+ *
+ *      Purpose: Create Homework App ustilizing a SQLite database
+ *      App should be able to add, remove, and modify entries, and also be
+ *      able to mark tasks as complete
+ *
+ * *********************************************************/
 package edu.niu.z1864126.assignment8;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.Activity;
 import android.util.Log;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
@@ -25,7 +26,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.ListIterator;
 
@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     ProjectDataBaseHelper myDb;
     ArrayList<homeworkItem> arrayList;
 
-    private int requestcode = 0; //Request code to provide when starting new activity
 
     /*onCreate: Reloads app activity to prior saved state*/
     @Override
@@ -106,6 +105,8 @@ public class MainActivity extends AppCompatActivity {
     * Alternatively, if the user picks to start over, all list options are deleted*/
     @Override
     public boolean onOptionsItemSelected(MenuItem choice){
+        int requestcode = 0; //Request code to provide when starting new activity
+
         Intent addDeleteUpdate; //Declaration of intent object to hold activity to transition to
 
         switch (choice.getItemId()){ //Switch that Selects the activity to launch or action to take
